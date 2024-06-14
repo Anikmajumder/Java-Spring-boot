@@ -4,8 +4,8 @@ public class CloudVendor {
     
     private String vendorId;
     private String vendorName;
-    private String VendorAddress;
-    private String VendorPhoneNumber;
+    private String vendorAddress;
+    private String vendorPhoneNumber;
 
     public CloudVendor(){
 
@@ -15,8 +15,8 @@ public class CloudVendor {
     public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber) {
         this.vendorId = vendorId;
         this.vendorName = vendorName;
-        this.VendorAddress = vendorAddress;
-        this.VendorPhoneNumber = vendorPhoneNumber;
+        this.vendorAddress = vendorAddress;
+        this.vendorPhoneNumber = vendorPhoneNumber;
     }
 
 
@@ -41,22 +41,22 @@ public class CloudVendor {
 
 
     public String getVendorAddress() {
-        return VendorAddress;
+        return vendorAddress;
     }
 
 
     public void setVendorAddress(String vendorAddress) {
-        VendorAddress = vendorAddress;
+        this.vendorAddress = vendorAddress;
     }
 
 
     public String getVendorPhoneNumber() {
-        return VendorPhoneNumber;
+        return vendorPhoneNumber;
     }
 
 
     public void setVendorPhoneNumber(String vendorPhoneNumber) {
-        VendorPhoneNumber = vendorPhoneNumber;
+        this.vendorPhoneNumber = vendorPhoneNumber;
     }
 
 
