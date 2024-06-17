@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class EmployeeController {
 
     private EmployeeService employeeService;
     
-    //Buid Add Employee REST API
+    //Build Add Employee REST API
 
     @PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
@@ -32,17 +33,25 @@ public class EmployeeController {
     }
 
 
-    //Buid Get Employee REST API
+    //Build Get Employee REST API
     @GetMapping("{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId){
         EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
         return ResponseEntity.ok(employeeDto);
     }
 
-    //Buid Get All Employees REST API
+    //Build Get All Employees REST API
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> employees = employeeService.getAllEmployees();
         return ResponseEntity.ok(employees);
+    }
+
+    //Build Update Employee REST API
+    @PutMapping("{id}")
+    public ResponseEntity<EmployeeDto> updateEmpoloyee(@PathVariable("id") Long employeeId,
+                                                       @RequestBody EmployeeDto updatedEmployeeDto){
+        EmployeeDto employeeDto = employeeService.updateEmployeeDto(employeeId, updatedEmployeeDto);
+        return ResponseEntity.ok(employeeDto);
     }
 }
