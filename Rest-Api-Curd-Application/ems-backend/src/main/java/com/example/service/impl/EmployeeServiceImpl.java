@@ -1,5 +1,8 @@
 package com.example.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.example.dto.EmployeeDto;
@@ -33,6 +36,14 @@ public class EmployeeServiceImpl implements EmployeeService {
                                 new ResourceNotFoundException("Employee is not exist in the given id: "+employeeId));
         
         return EmployeeMapper.mapToEmployeeDto(employee);
+    }
+
+    @Override
+    public List<EmployeeDto> getAllEmployees() {
+        
+        List<Employee> employees = employeeRepository.findAll();
+        return employees.stream().map((employee) -> EmployeeMapper.mapToEmployeeDto(employee))
+                                    .collect(Collectors.toList());
     }
 
 
